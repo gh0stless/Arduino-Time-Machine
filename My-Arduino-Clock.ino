@@ -10,8 +10,8 @@
 #include <DS1307RTC.h>              //für RTC Uhrenchipmodul
 #include <Adafruit_RGBLCDShield.h>  //für RGB Display Shield
 #include <TimeLib.h>                //für die "interne" Uhr
-#include <DCF77.h>                  //für Funkzeitempfang
 #include <Timezone.h>               //https://github.com/JChristensen/Timezone
+#include <DCF77.h>                  //für Funkzeitempfang
 #include <SpeechSynthesis.h>        //Sprachsythese Shield
 #include <bsec.h>                   //für Bosch BME680 Sensor
 
@@ -221,8 +221,8 @@ void loop() {
       sayTime();
       boottime = false;
     }
-    processNTP();
-    processWWW();
+    processNTP(); //bediene Zeitserver
+    processWWW(); //bediene WWW Server
 
     //Wenn Taste sprich Zeit
     uint8_t buttons = lcd.readButtons();
@@ -247,7 +247,7 @@ void loop() {
     
     // Sensordaten lesen
     if (iaqSensor.run()) { // If new data is available
-      myBosch.pressure = (iaqSensor.pressure/pow((1-0.0065*118.0/282.65),(0.03416/0.0065))); //mit 9,5° Durschnitt in Coswig(in Kelvin)
+      myBosch.pressure = (iaqSensor.pressure/pow((1-0.0065*118.0/282.65),(0.03416/0.0065))); //mit 9,5° Durschnitt in Coswig(in Kelvin), 118m Höhe
       myBosch.iaq = iaqSensor.iaq;
       myBosch.temperature = iaqSensor.temperature;
       myBosch.humidity = iaqSensor.humidity;
@@ -262,10 +262,10 @@ void loop() {
     if ( myIAQ >=   0 && myIAQ <=  50 ) {farbe = GREEN;}
     if ( myIAQ >=  51 && myIAQ <= 100 ) {farbe = BLUE;}
     if ( myIAQ >= 101 && myIAQ <= 150 ) {farbe = YELLOW;}
-    if ( myIAQ >= 151 && myIAQ <= 200 ) {farbe = TEAL;}
+    if ( myIAQ >= 151 && myIAQ <= 200 ) {farbe = VIOLET;}
     if ( myIAQ >= 201 && myIAQ <= 250 ) {farbe = RED;}
-    if ( myIAQ >= 251 && myIAQ <= 350 ) {farbe = VIOLET;}
-    if ( myIAQ >= 351 )                 {farbe = GREEN;}
+    if ( myIAQ >= 251 && myIAQ <= 350 ) {farbe = RED;}
+    if ( myIAQ >= 351 )                 {farbe = RED;}
     
     if (farbe != oldFarbe) lcd.setBacklight(farbe);
   
