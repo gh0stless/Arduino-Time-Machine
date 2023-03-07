@@ -1,0 +1,15 @@
+"ID";"Bezeichner";"Gehäuse";"Stückzahl";"Bezeichnung";"Anbieter und Referenz";
+1;"J1";"PinSocket_1x08_P2.54mm_Vertical";1;"Power";;;
+2;"J3";"PinSocket_1x06_P2.54mm_Vertical";1;"Analog";;;
+3;"J2";"PinSocket_1x10_P2.54mm_Vertical";1;"PWM";;;
+4;"J4";"PinSocket_1x08_P2.54mm_Vertical";1;"PWM";;;
+5;"J8";"PinSocket_1x06_P2.54mm_Horizontal";1;"BME680";;;
+6;"J10";"PinSocket_1x03_P2.54mm_Horizontal";1;"PIR sensor";;;
+7;"J11";"PinSocket_1x06_P2.54mm_Horizontal";1;"RTC";;;
+8;"JP2,JP1";"SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm";2;"Jumper_2_Open";;;
+9;"J7";"Pin_D1.0mm_L10.0mm_LooseFit";1;"LSP-";;;
+10;"H8,H9,H7";"MountingHole_4.3mm_M4";3;"MountingHole";;;
+11;"H1,H3,H2,H5,H4,H6";"MountingHole_3.2mm_M3_DIN965";6;"MountingHole";;;
+12;"J6";"Pin_D1.0mm_L10.0mm_LooseFit";1;"LSP+";;;
+13;"J9";"PinSocket_1x05_P2.54mm_Horizontal";1;"FCF/77";;;
+14;"J5";"PinHeader_1x02_P2.54mm_Horizontal";1;"LSP-In";;;
