@@ -51,6 +51,8 @@ struct Bosch{
   uint8_t gasPercentageAcccuracy = 0;
 } myBosch;
 
+#define TemperaturSensorAbweichung -0.8
+
 /**************************************************************************************************
 ** Zeit                                                                                          **
 ***************************************************************************************************/
@@ -256,7 +258,7 @@ void loop() {
     if (iaqSensor.run()) { // If new data is available
       myBosch.pressure = (iaqSensor.pressure/pow((1-0.0065*118.0/282.65),(0.03416/0.0065))); //mit 9,5° Durschnitt in Coswig(in Kelvin), 118m Höhe
       myBosch.iaq = iaqSensor.iaq;
-      myBosch.temperature = iaqSensor.temperature;
+      myBosch.temperature = iaqSensor.temperature + TemperaturSensorAbweichung;
       myBosch.humidity = iaqSensor.humidity;
       myBosch.co2Equivalent = iaqSensor.co2Equivalent;
     }

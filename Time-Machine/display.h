@@ -55,10 +55,10 @@ void LCDClockDisplay(){
         lcd.print(output);
     }
     else{
-        output = " " + String(myBosch.iaq) + " ";
+        output = " " + String(myBosch.iaq) + "  ";
         lcd.setCursor(9, 0);
         lcd.print(output);
-        output = String((myBosch.pressure),0);
+        output = String((unsigned long)(myBosch.pressure)) + "  ";
         lcd.setCursor(10, 1);
         lcd.print(output);
     }
